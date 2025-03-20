@@ -45,10 +45,10 @@ exports.createPelanggan = (req, res) => {
             'string.max': 'Alamat harus terdiri dari maksimal 100 karakter',
             'any.required': 'Alamat harus diisi'
         }),
-        no_hp: Joi.string().min(11).max(13).pattern(/^08[0-9]{8,12}$/).required().messages({
+        no_hp: Joi.string().min(11).max(13).pattern(/^08\d{8,12}$/).required().messages({
             'string.min': 'Nomor HP harus terdiri dari minimal 11 karakter',
             'string.max': 'Nomor HP harus terdiri dari maksimal 13 karakter',
-            'string.pattern.base': 'Nomor HP harus sesuai dengan format Indonesia (+62xxxxxxxxxxx) atau 08xxxxxxxxxxx',
+            'string.pattern.base': 'Nomor HP harus sesuai dengan format 08xxxxxxxxxxx',
             'any.required': 'Nomor HP harus diisi'
         }),
         kode_server: Joi.string().min(3).max(10).required().messages({
