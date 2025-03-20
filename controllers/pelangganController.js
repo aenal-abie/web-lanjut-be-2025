@@ -57,7 +57,7 @@ exports.createPelanggan = (req, res) => {
             'any.required': 'Kode server harus diisi'
         })
     });
-
+    // pastikan data server ada 
     db.query('SELECT * FROM server WHERE kode_server = ?', [kode_server], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err.message });
@@ -66,7 +66,7 @@ exports.createPelanggan = (req, res) => {
             return res.status(400).json({ message: 'Kode server tidak ditemukan di data server' });
         }
     });
-
+    //pastikan kode pelanggan belum dipakai
     db.query('SELECT * FROM pelanggan WHERE kode_pelanggan = ?', [kode_pelanggan], (err, result) => {
         if (err) {
             return res.status(500).json({ error: err.message });
